@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hyp Functional Prediction · Discussion Tree</title>
+<meta name="description" content="羟基化修饰功能预测研究的讨论树 — 与陈悦老师的会议问题清单">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-row">
+      <div class="brand">
+        <span class="brand-emoji">🧬</span>
+        <div>
+          <div class="brand-title">Hyp Functional Prediction</div>
+          <div class="brand-sub">Discussion Tree · 羟基化修饰功能预测研究</div>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <a href="#context">背景</a>
+        <a href="#cat-structure">结构</a>
+        <a href="#cat-method">方法</a>
+        <a href="#cat-scale">规模</a>
+        <a href="#cat-validation">验证</a>
+        <a href="#cat-collab">协作</a>
+        <a href="https://github.com/huan2701-cmd/hyp-discussion-site" target="_blank" class="gh-link">GitHub</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero / Meeting Context -->
+  <section id="context" class="hero">
+    <div class="container">
+      <div class="hero-badge">Research Discussion Hub · v1.0</div>
+      <h1>会议讨论树<br><span class="hero-accent">与陈悦老师 · Hyp 功能预测方向</span></h1>
+      <p class="hero-desc">
+        本页面汇总了 2026-05 会议中关于"用 AlphaFold3 预测 Hyp 功能位点"的所有讨论问题，
+        按 5 个主题分类、15 个具体问题展开。每个问题下方支持 GitHub 评论，
+        可直接讨论、回复、跟进。
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat-box">
+          <div class="stat-num">15</div>
+          <div class="stat-label">讨论问题</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">5</div>
+          <div class="stat-label">主题分类</div>
+        </div>
+        <div class="stat-box priority">
+          <div class="stat-num">2</div>
+          <div class="stat-label">最高优先级 (Q4, Q12)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">14,413</div>
+          <div class="stat-label">目标位点</div>
+        </div>
+      </div>
+
+      <div class="hero-summary">
+        <h3>陈悦老师的核心期望</h3>
+        <blockquote>
+          "比较加了 Hyp 和没加 Hyp 的两个预测结构，结构变化大的位点 = 功能候选位点。
+          需要批量处理成千上万个位点，不是一个一个看。"
+        </blockquote>
+        <div class="kanban">
+          <div class="kanban-col confirmed">
+            <h4>✅ 已明确</h4>
+            <ul>
+              <li>核心方向：AF3 + PTM 结构对比</li>
+              <li>规模需求：批量处理优先</li>
+              <li>路线否决：ChatGPT 打分、PTM-Mamba 暂搁</li>
+              <li>Novelty：AF3+PTM 是 2024 新机会</li>
+            </ul>
+          </div>
+          <div class="kanban-col open">
+            <h4>❓ 待解决</h4>
+            <ul>
+              <li>用什么指标量化结构差异？(Q4 🔥)</li>
+              <li>如何验证分数与功能相关？(Q12 🔥)</li>
+              <li>批量提交方案？Server vs MSI?</li>
+              <li>静态结构够吗？动力学考量？</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Discussion Tree -->
+  <section class="tree-section">
+    <div class="container">
+
+      <!-- 一、结构方面的探索 -->
+      <div class="category" id="cat-structure">
+        <div class="cat-header">
+          <span class="cat-num">一</span>
+          <div>
+            <h2 class="cat-title">结构方面的探索</h2>
+            <p class="cat-desc">Structural Exploration — Hyp 修饰对蛋白结构的影响是否可量化</p>
+          </div>
+          <div class="cat-count">3 个问题</div>
+        </div>
+
+        <div class="q-card" id="Q1" data-priority="normal">
+          <div class="q-header">
+            <span class="q-id">Q1</span>
+            <span class="q-priority normal">📌 Normal</span>
+            <h3 class="q-title">羟基化修饰的结构功能假设是否成立？</h3>
+          </div>
+          <div class="q-body">
+            <p>加上 Hyp 修饰后，如果两个结构完全重叠（WT vs Hyp），是否可以得出"该修饰无功能意义"的结论？反过来，结构发生变化是否足以证明修饰有功能意义？</p>
+            <p class="q-side"><strong>反例考虑</strong>：结构不变但功能依然改变的情况是否存在？例如通过氢键、动力学、相互作用伙伴改变？</p>
+          </div>
+          <div class="q-thread" data-discussion="Q1"></div>
+        </div>
+
+        <div class="q-card" id="Q2" data-priority="normal">
+          <div class="q-header">
+            <span class="q-id">Q2</span>
+            <span class="q-priority normal">📌 Normal</span>
+            <h3 class="q-title">结构变化 → Hyp 功能性的生物学基础有多强？</h3>
+          </div>
+          <div class="q-body">
+            <p>传统上判断 PTM 功能性的方法是 docking 或体外活性实验。用 AI 预测的结构差异（ΔPAE / ΔRMSD）来替代，两者之间的对应关系有文献支持吗？</p>
+            <p class="q-side"><strong>背景</strong>：会议中陈悦提到 drug screening 类比，但 inhibitor 结合 vs PTM 修饰是两种不同的扰动机制。</p>
+          </div>
+          <div class="q-thread" data-discussion="Q2"></div>
+        </div>
+
+        <div class="q-card" id="Q3" data-priority="normal">
+          <div class="q-header">
+            <span class="q-id">Q3</span>
+            <span class="q-priority normal">📌 Normal</span>
+            <h3 class="q-title">只比较静态结构是否足够？</h3>
+          </div>
+          <div class="q-body">
+            <p>会议中曾提到"Hyp 的作用可能在局部动力学而非静态结构"。如果两个 AF3 静态结构看起来一样，但 Hyp 实际通过改变柔性/氢键网络起作用，静态比较会漏掉这类位点吗？</p>
+            <p class="q-side"><strong>已有线索</strong>：PRDX3 P230/235/238 在 AF3 中 ΔpTM 仅 0.02（0.75 → 0.77），但实验 half-life ratio 极端分化（0.091 vs 1.212）— 静态指标可能不够敏感。</p>
+          </div>
+          <div class="q-thread" data-discussion="Q3"></div>
+        </div>
+      </div>
+
+      <!-- 二、方法论问题 -->
+      <div class="category" id="cat-method">
+        <div class="cat-header">
+          <span class="cat-num">二</span>
+          <div>
+            <h2 class="cat-title">方法论问题</h2>
+            <p class="cat-desc">Methodological — 用什么具体工具、指标、模型</p>
+          </div>
+          <div class="cat-count">5 个问题</div>
+        </div>
+
+        <div class="q-card critical" id="Q4" data-priority="critical">
+          <div class="q-header">
+            <span class="q-id">Q4</span>
+            <span class="q-priority critical">🔥 Critical</span>
+            <h3 class="q-title">用什么指标来定量"两个结构有多不同"？</h3>
+          </div>
+          <div class="q-body">
+            <p>会议末尾明确提出但<strong>没解决</strong>：给定 WT 结构和 Hyp 结构，用什么现成工具/指标比较相似性？</p>
+            <div class="q-options">
+              <div class="opt-card">
+                <div class="opt-name">RMSD</div>
+                <div class="opt-detail">全局或局部 ±10 残基</div>
+                <div class="opt-tool">PyMOL, ChimeraX, BioPython</div>
+              </div>
+              <div class="opt-card">
+                <div class="opt-name">TM-score</div>
+                <div class="opt-detail">结构拓扑相似性</div>
+                <div class="opt-tool">TM-align（命令行）</div>
+              </div>
+              <div class="opt-card highlight">
+                <div class="opt-name">ΔPAE</div>
+                <div class="opt-detail">AF3 自带预测对准误差矩阵</div>
+                <div class="opt-tool">解析 JSON 即可</div>
+              </div>
+              <div class="opt-card">
+                <div class="opt-name">Δcontact_probs</div>
+                <div class="opt-detail">接触模式改变</div>
+                <div class="opt-tool">AF3 输出 + numpy</div>
+              </div>
+            </div>
+            <p class="q-side"><strong>决策依赖</strong>：这是所有后续 pipeline 的核心，必须先定。</p>
+          </div>
+          <div class="q-thread" data-discussion="Q4"></div>
+        </div>
+
+        <div class="q-card" id="Q5" data-priority="high">
+          <div class="q-header">
+            <span class="q-id">Q5</span>
+            <span class="q-priority high">⚡ High</span>
+            <h3 class="q-title">AF3 自带的置信度指标能直接用作功能预测分数吗？</h3>
+          </div>
+          <div class="q-body">
+            <p>陈老师提到"AF3 已有现成的评分标准"。具体是指：</p>
+            <ul class="q-list">
+              <li><strong>pLDDT</strong> — 每残基置信度（0-100）</li>
+              <li><strong>PAE</strong> — 残基对相对位置误差矩阵</li>
+              <li><strong>ptm / ranking_score</strong> — 全局质量分</li>
+              <li><strong>fraction_disordered</strong> — 无序区域比例</li>
+            </ul>
+            <p>单独用 PAE 差值是否已经够用？还是需要结合 TM-align 等外部工具做交叉验证？</p>
+          </div>
+          <div class="q-thread" data-discussion="Q5"></div>
+        </div>
+
+        <div class="q-card" id="Q6" data-priority="high">
+          <div class="q-header">
+            <span class="q-id">Q6</span>
+            <span class="q-priority high">⚡ High</span>
+            <h3 class="q-title">在已预测的结构基础上再建模 PTM 是否可行？</h3>
+          </div>
+          <div class="q-body">
+            <p>是否可以先预测 WT 结构，再在这个结构上"加上" Hyp 修饰做局部优化（如 PyRosetta），而不是每次都从头重跑 AF3？</p>
+            <p class="q-side"><strong>权衡</strong>：节省大量计算资源，但 PTM 的引入可能触发整体折叠改变，局部优化可能 underestimate 真实变化。</p>
+          </div>
+          <div class="q-thread" data-discussion="Q6"></div>
+        </div>
+
+        <div class="q-card" id="Q7" data-priority="normal">
+          <div class="q-header">
+            <span class="q-id">Q7</span>
+            <span class="q-priority normal">📌 Normal</span>
+            <h3 class="q-title">ESM-2 路线是否完全放弃？</h3>
+          </div>
+          <div class="q-body">
+            <p>跨蛋白相关系数 r ≈ -0.07，基本失效。但蛋白内部 r = 0.95。</p>
+            <p>是否有可能<strong>结合 AF3 结构信息</strong>来修正 ESM-2 的跨蛋白问题（例如用结构 embedding 做归一化），还是彻底切换到纯结构路线？</p>
+          </div>
+          <div class="q-thread" data-discussion="Q7"></div>
+        </div>
+
+        <div class="q-card" id="Q8" data-priority="low">
+          <div class="q-header">
+            <span class="q-id">Q8</span>
+            <span class="q-priority low">💤 Low</span>
+            <h3 class="q-title">PTM-Mamba 是否值得继续调研？</h3>
+          </div>
+          <div class="q-body">
+            <p>会议中陈老师表示"没看懂 PTM-Mamba 在做什么"。它的核心贡献是直接编码 PTM 化学信息（不是 P→A 代理）。</p>
+            <p>是否和当前方向（AF3 结构比较）<strong>互补</strong>（序列+结构融合）还是<strong>替代</strong>？</p>
+          </div>
+          <div class="q-thread" data-discussion="Q8"></div>
+        </div>
+      </div>
+
+      <!-- 三、规模化问题 -->
+      <div class="category" id="cat-scale">
+        <div class="cat-header">
+          <span class="cat-num">三</span>
+          <div>
+            <h2 class="cat-title">规模化问题</h2>
+            <p class="cat-desc">Scalability — 如何从单个 PRDX3 扩展到全量 14,413 位点</p>
+          </div>
+          <div class="cat-count">3 个问题</div>
+        </div>
+
+        <div class="q-card" id="Q9" data-priority="high">
+          <div class="q-header">
+            <span class="q-id">Q9</span>
+            <span class="q-priority high">⚡ High</span>
+            <h3 class="q-title">如何批量处理成千上万个 Hyp 位点？</h3>
+          </div>
+          <div class="q-body">
+            <p>AF3 Server 每账号每天上限 20 个 job。全量 14,413 个位点需要约 28,826 个 job（WT + Hyp 各一个）。</p>
+            <div class="q-options">
+              <div class="opt-card">
+                <div class="opt-name">MSI 本地部署</div>
+                <div class="opt-detail">开源 AF3 + GPU 资源</div>
+                <div class="opt-tool">有 UMN 账号，需申请</div>
+              </div>
+              <div class="opt-card">
+                <div class="opt-name">分阶段策略</div>
+                <div class="opt-detail">先做 33 个 golden sites</div>
+                <div class="opt-tool">Server 一周内完成</div>
+              </div>
+              <div class="opt-card">
+                <div class="opt-name">多账号轮转</div>
+                <div class="opt-detail">合规边界需确认</div>
+                <div class="opt-tool">违反 TOS 风险</div>
+              </div>
+            </div>
+          </div>
+          <div class="q-thread" data-discussion="Q9"></div>
+        </div>
+
+        <div class="q-card" id="Q10" data-priority="high">
+          <div class="q-header">
+            <span class="q-id">Q10</span>
+            <span class="q-priority high">⚡ High</span>
+            <h3 class="q-title">批量比较的 pipeline 怎么设计？</h3>
+          </div>
+          <div class="q-body">
+            <p>从输入到输出的标准流程：</p>
+            <pre class="pipeline">
+输入：蛋白序列列表 + Hyp 位点列表
+  ↓
+AF3 批量提交（WT 版 + Hyp 版）
+  ↓
+结果下载 + 解析（PAE/pLDDT/CIF）
+  ↓
+差值计算（ΔPAE / ΔRMSD / Δcontact）
+  ↓
+标准化打分 + 排序
+  ↓
+输出：每位点的"结构变化分数"</pre>
+            <p class="q-side">目前没有现成实现，需要从头搭建。是否参考已有的 AF3 高通量项目（如 AF Cluster, AFsample）？</p>
+          </div>
+          <div class="q-thread" data-discussion="Q10"></div>
+        </div>
+
+        <div class="q-card" id="Q11" data-priority="normal">
+          <div class="q-header">
+            <span class="q-id">Q11</span>
+            <span class="q-priority normal">📌 Normal</span>
+            <h3 class="q-title">同一蛋白上多个 Hyp 位点：全加还是逐一加？</h3>
+          </div>
+          <div class="q-body">
+            <p>PRDX3 有 P230/P235/P238 三个位点：</p>
+            <ul class="q-list">
+              <li><strong>全加（3xHyp 一起）</strong> — 反映协同效应，但无法分离单个贡献</li>
+              <li><strong>逐一加（3 个独立 job）</strong> — 分离贡献，但忽略协同</li>
+              <li><strong>两者都做</strong> — 信息最全，但 job 数 ×4</li>
+            </ul>
+            <p>哪种设计对功能预测更有意义？多 Hyp 肽段在数据中（n=61）热效应略强，提示协同效应真实存在。</p>
+          </div>
+          <div class="q-thread" data-discussion="Q11"></div>
+        </div>
+      </div>
+
+      <!-- 四、验证问题 -->
+      <div class="category" id="cat-validation">
+        <div class="cat-header">
+          <span class="cat-num">四</span>
+          <div>
+            <h2 class="cat-title">验证问题</h2>
+            <p class="cat-desc">Validation — 怎么证明这个方法真的能预测功能</p>
+          </div>
+          <div class="cat-count">2 个问题</div>
+        </div>
+
+        <div class="q-card critical" id="Q12" data-priority="critical">
+          <div class="q-header">
+            <span class="q-id">Q12</span>
+            <span class="q-priority critical">🔥 Critical</span>
+            <h3 class="q-title">如何验证"结构变化分数"确实和功能相关？</h3>
+          </div>
+          <div class="q-body">
+            <p>需要 ground truth。现有 23 个 golden sites（有热稳定 + 翻转率数据）。</p>
+            <p>用这 23 个位点的 <strong>ΔPAE 分数</strong> 和 <strong>实验 half-life ratio / ΔTm</strong> 做相关性分析：</p>
+            <ul class="q-list">
+              <li>n=23 是否够支撑统计显著性？</li>
+              <li>用 Spearman 还是 Pearson 相关？</li>
+              <li>分组比较（高变化 vs 低变化）是否更稳健？</li>
+              <li>需要多少 ground truth 才算"足够"？</li>
+            </ul>
+            <p class="q-side"><strong>决策依赖</strong>：Q4 的指标选定后，Q12 是验证有效性的关键检验。</p>
+          </div>
+          <div class="q-thread" data-discussion="Q12"></div>
+        </div>
+
+        <div class="q-card" id="Q13" data-priority="high">
+          <div class="q-header">
+            <span class="q-id">Q13</span>
+            <span class="q-priority high">⚡ High</span>
+            <h3 class="q-title">已知功能位点的结构变化是否符合预期？</h3>
+          </div>
+          <div class="q-body">
+            <p><strong>HIF-1α P402</strong> 的 Hyp 创造 pVHL 结合基序——这是一个"结构上几乎不变，但功能剧变"的典型案例。</p>
+            <p>如果 ΔPAE 在这个位点接近零，是否会否定整个方法？还是说应该把这类"基序型 Hyp"作为方法的已知局限？</p>
+            <p class="q-side"><strong>潜在结果</strong>：方法可能擅长捕捉"结构敏感型"功能 Hyp（如 PRDX3），不擅长"motif 创建型"（如 HIF-1α）。两类需要不同的预测策略。</p>
+          </div>
+          <div class="q-thread" data-discussion="Q13"></div>
+        </div>
+      </div>
+
+      <!-- 五、合作问题 -->
+      <div class="category" id="cat-collab">
+        <div class="cat-header">
+          <span class="cat-num">五</span>
+          <div>
+            <h2 class="cat-title">合作与资源问题</h2>
+            <p class="cat-desc">Collaboration — 资源、人员、节奏判断</p>
+          </div>
+          <div class="cat-count">2 个问题</div>
+        </div>
+
+        <div class="q-card" id="Q14" data-priority="normal">
+          <div class="q-header">
+            <span class="q-id">Q14</span>
+            <span class="q-priority normal">📌 Normal</span>
+            <h3 class="q-title">是否邀请结构生物学方向的人评估方法？</h3>
+          </div>
+          <div class="q-body">
+            <p>陈老师提到可以把做 docking 的人叫来问一下，看这个想法从结构生物学角度是否 make sense。</p>
+            <p class="q-side"><strong>需要确认</strong>：具体是 Chen Lab 内部成员，还是外部合作者？什么时候邀请最合适——现在 still 还是 POC 完成后？</p>
+          </div>
+          <div class="q-thread" data-discussion="Q14"></div>
+        </div>
+
+        <div class="q-card" id="Q15" data-priority="normal">
+          <div class="q-header">
+            <span class="q-id">Q15</span>
+            <span class="q-priority normal">📌 Normal</span>
+            <h3 class="q-title">现在的阶段定位是什么？</h3>
+          </div>
+          <div class="q-body">
+            <p>是探索性 pilot study，还是已经要开始设计可发表的实验？</p>
+            <p>判断标准是什么？例如：</p>
+            <ul class="q-list">
+              <li>PRDX3 的 ΔPAE 在三个位点之间是否能区分 ratio 极端值？</li>
+              <li>23 个 golden sites 上是否能复现已知方向？</li>
+              <li>方法是否在"motif 创建型" Hyp 上失效（如 HIF-1α）？</li>
+            </ul>
+            <p>达到什么水平才算"值得继续推进到 full-scale"？</p>
+          </div>
+          <div class="q-thread" data-discussion="Q15"></div>
+        </div>
+      </div>
+
+      <!-- Bottom note -->
+      <div class="bottom-note">
+        <h3>💡 决策依赖关系</h3>
+        <p>
+          <strong>Q4</strong>（指标选择）和 <strong>Q12</strong>（验证策略）是最高优先级。
+          其余问题都依赖这两个答案——只有定下指标，才能验证；只有验证有效，才值得规模化。
+        </p>
+        <div class="dep-flow">
+          <span class="dep-node">Q4: 选指标</span>
+          <span class="dep-arrow">→</span>
+          <span class="dep-node">Q12: 验证</span>
+          <span class="dep-arrow">→</span>
+          <span class="dep-node">Q5/6/9/10: 规模化</span>
+          <span class="dep-arrow">→</span>
+          <span class="dep-node">Q14/15: 节奏</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <div>
+        <strong>Hyp Functional Prediction · Discussion Tree</strong><br>
+        <span class="footer-sub">陈悦老师 × Functional Hydroxyproline Research · 2026-05</span>
+      </div>
+      <div>
+        <a href="https://github.com/huan2701-cmd/hyp-discussion-site">GitHub Repo</a> ·
+        <a href="https://github.com/huan2701-cmd/hyp-discussion-site/discussions">All Discussions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ========================================
+     Giscus 评论系统配置
+     部署前需要在 https://giscus.app 拿到 repoId 和 categoryId，填到 GISCUS_CFG 里
+     步骤：
+       1. GitHub repo Settings → General → Features → 勾选 Discussions
+       2. 安装 https://github.com/apps/giscus 到该 repo
+       3. 在 Discussions 里新建一个 Category（建议 Announcements 类型，名为 "Q&A"）
+       4. 访问 https://giscus.app/zh-CN，填仓库名，会自动生成 repoId / categoryId
+     ======================================== -->
+<script>
+  // ====== 部署后修改这里 ======
+  const GISCUS_CFG = {
+    repo: 'huan2701-cmd/hyp-discussion-site',
+    repoId: '',           // 部署后从 giscus.app 拿到后填入
+    category: 'Q&A',
+    categoryId: '',       // 部署后从 giscus.app 拿到后填入
+    mapping: 'specific',  // 每个问题用独立的 discussion term
+    theme: 'dark_dimmed',
+    lang: 'zh-CN'
+  };
+  // ===========================
+
+  const giscusReady = GISCUS_CFG.repoId && GISCUS_CFG.categoryId;
+
+  document.querySelectorAll('.q-thread').forEach(thread => {
+    const qId = thread.dataset.discussion;
+    const wrapper = document.createElement('div');
+    wrapper.className = 'giscus-wrapper';
+
+    if (giscusReady) {
+      // 真实 Giscus 加载 — 每个问题独立 discussion
+      const giscusScript = document.createElement('script');
+      giscusScript.src = 'https://giscus.app/client.js';
+      giscusScript.setAttribute('data-repo', GISCUS_CFG.repo);
+      giscusScript.setAttribute('data-repo-id', GISCUS_CFG.repoId);
+      giscusScript.setAttribute('data-category', GISCUS_CFG.category);
+      giscusScript.setAttribute('data-category-id', GISCUS_CFG.categoryId);
+      giscusScript.setAttribute('data-mapping', GISCUS_CFG.mapping);
+      giscusScript.setAttribute('data-term', `discussion-${qId}`);
+      giscusScript.setAttribute('data-strict', '0');
+      giscusScript.setAttribute('data-reactions-enabled', '1');
+      giscusScript.setAttribute('data-emit-metadata', '0');
+      giscusScript.setAttribute('data-input-position', 'top');
+      giscusScript.setAttribute('data-theme', GISCUS_CFG.theme);
+      giscusScript.setAttribute('data-lang', GISCUS_CFG.lang);
+      giscusScript.setAttribute('data-loading', 'lazy');
+      giscusScript.crossOrigin = 'anonymous';
+      giscusScript.async = true;
+      wrapper.appendChild(giscusScript);
+    } else {
+      // 未配置时显示占位
+      wrapper.innerHTML = `
+        <div class="giscus-placeholder">
+          <p>💬 <strong>${qId} 讨论区</strong> — 配置 Giscus 后此处显示评论框</p>
+          <p class="placeholder-detail">陈悦老师可用 GitHub 账号在此直接评论、回复</p>
+        </div>
+      `;
+    }
+    thread.appendChild(wrapper);
+  });
+
+  // 平滑滚动 + 锚点高亮
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({behavior: 'smooth', block: 'start'});
+        history.replaceState(null, '', a.getAttribute('href'));
+      }
+    });
+  });
+
+  // URL 直接带 #Q4 进来时，把卡片高亮一下
+  if (window.location.hash) {
+    const el = document.querySelector(window.location.hash);
+    if (el && el.classList.contains('q-card')) {
+      el.style.transition = 'box-shadow 0.6s ease';
+      el.style.boxShadow = '0 0 0 2px rgba(251,191,36,0.6), 0 8px 32px rgba(251,191,36,0.2)';
+      setTimeout(() => { el.style.boxShadow = ''; }, 2400);
+    }
+  }
+</script>
+
+</body>
+</html>
