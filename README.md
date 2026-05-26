@@ -18,71 +18,23 @@ http://localhost:8000
 
 ---
 
-## 二、部署到 GitHub Pages（5 步）
+## 二、部署状态
 
-### 1. 初始化并推到 GitHub
+| 项                | 状态                                                            |
+| ----------------- | --------------------------------------------------------------- |
+| GitHub Repo       | https://github.com/huan2701-cmd/hyp-discussion-site             |
+| GitHub Pages      | https://huan2701-cmd.github.io/hyp-discussion-site/             |
+| Discussions       | 已开 (Q&A 分类已就绪)                                           |
+| Giscus 参数       | 已填入 `index.html` (`R_kgDOSoh1cg` / `DIC_kwDOSoh1cs4C948T`)  |
+| **唯一剩余步骤** | **安装 Giscus App** ← 见下方                                    |
 
-```bash
-cd C:/Users/26583/Downloads/hyp-discussion-site
-git init
-git add .
-git commit -m "init: Hyp discussion tree"
-git branch -M main
-gh repo create hyp-discussion-site --public --source=. --remote=origin --push
-```
+### 启用评论（唯一手动步骤）
 
-### 2. 启用 GitHub Pages
+访问 https://github.com/apps/giscus → **Install** → 选择 `hyp-discussion-site` 仓库 → **Save**
 
-进入仓库 → **Settings** → **Pages**：
-- **Source**: Deploy from a branch
-- **Branch**: `main` / root
-- 保存，等 1-2 分钟
+完成后，刷新页面，每个问题下方就会自动显示评论框。陈老师用 GitHub 账号点开任意问题都可以直接评论。
 
-访问地址：`https://huan2701-cmd.github.io/hyp-discussion-site/`
-
-### 3. 启用 Discussions
-
-仓库 → **Settings** → **General** → 下滑到 **Features** → 勾选 **Discussions**
-
-进入 **Discussions** 标签 → **Categories** → **New category**：
-- Name: `Q&A`
-- Discussion format: `Question / Answer`
-
-### 4. 安装 Giscus App
-
-访问 https://github.com/apps/giscus → **Install** → 选 `hyp-discussion-site` 仓库 → 确认
-
-### 5. 拿到 Giscus 参数 + 填入 index.html
-
-访问 https://giscus.app/zh-CN：
-- **仓库**: 填 `huan2701-cmd/hyp-discussion-site`
-- **页面 ↔ discussion 映射**: 选 `discussion 标题包含页面的 <特定字串>`
-- **discussion category**: 选 `Q&A`
-- 网页会自动给出 `data-repo-id` 和 `data-category-id`
-
-打开 `index.html`，找到底部 `GISCUS_CFG`：
-
-```javascript
-const GISCUS_CFG = {
-  repo: 'huan2701-cmd/hyp-discussion-site',
-  repoId: 'R_kgDOxxxxxx',      // ← 填这里
-  category: 'Q&A',
-  categoryId: 'DIC_kwDOxxxxxx', // ← 填这里
-  mapping: 'specific',
-  theme: 'dark_dimmed',
-  lang: 'zh-CN'
-};
-```
-
-提交：
-
-```bash
-git add index.html
-git commit -m "feat: enable Giscus integration"
-git push
-```
-
-1-2 分钟后再访问页面，每个问题下方就会显示真实评论框。
+> **为什么需要这一步？** Giscus 是个 GitHub App，必须由仓库 owner 主动授权才能在外部网页里操作仓库的 Discussions。这是 GitHub 的安全机制，没法用 API 跳过。
 
 ---
 
