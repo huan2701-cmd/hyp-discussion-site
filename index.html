@@ -477,17 +477,17 @@ AF3 批量提交（WT 版 + Hyp 版）
        4. 访问 https://giscus.app/zh-CN，填仓库名，会自动生成 repoId / categoryId
      ======================================== -->
 <script>
-  // ====== 部署后修改这里 ======
+  // ====== Giscus 配置（已填入仓库信息，装完 Giscus App 即可启用） ======
   const GISCUS_CFG = {
     repo: 'huan2701-cmd/hyp-discussion-site',
-    repoId: '',           // 部署后从 giscus.app 拿到后填入
+    repoId: 'R_kgDOSoh1cg',
     category: 'Q&A',
-    categoryId: '',       // 部署后从 giscus.app 拿到后填入
+    categoryId: 'DIC_kwDOSoh1cs4C948T',
     mapping: 'specific',  // 每个问题用独立的 discussion term
     theme: 'dark_dimmed',
     lang: 'zh-CN'
   };
-  // ===========================
+  // =================================================================
 
   const giscusReady = GISCUS_CFG.repoId && GISCUS_CFG.categoryId;
 
