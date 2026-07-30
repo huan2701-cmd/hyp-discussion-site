@@ -45,6 +45,12 @@
         按 5 个主题分类、15 个具体问题展开。每个问题下方支持 GitHub 评论，
         可直接讨论、回复、跟进。
       </p>
+      <div class="hero-mainline">
+        <strong>当前主线(2026-07-30)</strong>:集中攻关 <strong>Q4</strong>(结构差异指标)与 <strong>Q12</strong>(验证策略)。
+        部分问题已有来自并行计算工作(Hyp 位点计算优先级项目,层 1–4 已完成,
+        <a href="https://github.com/huan2701-cmd/4-hyp" target="_blank">评审包 4-hyp</a>)的答案或方法学约束,
+        见各题下方"当前进展"块。
+      </div>
 
       <div class="hero-stats">
         <div class="stat-box">
@@ -73,7 +79,7 @@
         </blockquote>
         <div class="kanban">
           <div class="kanban-col confirmed">
-            <h4>✅ 已明确</h4>
+            <h4>已明确</h4>
             <ul>
               <li>核心方向：AF3 + PTM 结构对比</li>
               <li>规模需求：批量处理优先</li>
@@ -82,10 +88,10 @@
             </ul>
           </div>
           <div class="kanban-col open">
-            <h4>❓ 待解决</h4>
+            <h4>待解决</h4>
             <ul>
-              <li>用什么指标量化结构差异？(Q4 🔥)</li>
-              <li>如何验证分数与功能相关？(Q12 🔥)</li>
+              <li>用什么指标量化结构差异？(Q4,攻关中)</li>
+              <li>如何验证分数与功能相关？(Q12,攻关中)</li>
               <li>批量提交方案？Server vs MSI?</li>
               <li>静态结构够吗？动力学考量？</li>
             </ul>
@@ -113,20 +119,22 @@
         <div class="q-card" id="Q1" data-priority="normal">
           <div class="q-header">
             <span class="q-id">Q1</span>
-            <span class="q-priority normal">📌 Normal</span>
+            <span class="q-priority normal">Normal</span>
             <h3 class="q-title">羟基化修饰的结构功能假设是否成立？</h3>
           </div>
           <div class="q-body">
             <p>加上 Hyp 修饰后，如果两个结构完全重叠（WT vs Hyp），是否可以得出"该修饰无功能意义"的结论？反过来，结构发生变化是否足以证明修饰有功能意义？</p>
             <p class="q-side"><strong>反例考虑</strong>：结构不变但功能依然改变的情况是否存在？例如通过氢键、动力学、相互作用伙伴改变？</p>
           </div>
+          <div class="q-now"><h4>当前进展 · 2026-07-30(部分有答案,来自计算侧证据)</h4>
+<p>结构变化既非必要条件、也非充分条件。金标 HIF-1α P402 的功能靠"创建 pVHL 结合基序"——结合面变化可以很小而功能剧变;在我们的六分项功能排序里,结构敏感性(S4)权重只有 0.160,多数高分位点并不靠大结构变化胜出。更稳妥的提法:<strong>结构不变不能证伪功能</strong>(氢键/动力学/相互作用伙伴都可能改变),结构显著变化是强提示但仍须功能验证——这正是 Q12 存在的理由。</p></div>
           <div class="q-thread" data-discussion="Q1"></div>
         </div>
 
         <div class="q-card" id="Q2" data-priority="normal">
           <div class="q-header">
             <span class="q-id">Q2</span>
-            <span class="q-priority normal">📌 Normal</span>
+            <span class="q-priority normal">Normal</span>
             <h3 class="q-title">结构变化 → Hyp 功能性的生物学基础有多强？</h3>
           </div>
           <div class="q-body">
@@ -139,13 +147,15 @@
         <div class="q-card" id="Q3" data-priority="normal">
           <div class="q-header">
             <span class="q-id">Q3</span>
-            <span class="q-priority normal">📌 Normal</span>
+            <span class="q-priority normal">Normal</span>
             <h3 class="q-title">只比较静态结构是否足够？</h3>
           </div>
           <div class="q-body">
             <p>会议中曾提到"Hyp 的作用可能在局部动力学而非静态结构"。如果两个 AF3 静态结构看起来一样，但 Hyp 实际通过改变柔性/氢键网络起作用，静态比较会漏掉这类位点吗？</p>
             <p class="q-side"><strong>已有线索</strong>：PRDX3 P230/235/238 在 AF3 中 ΔpTM 仅 0.02（0.75 → 0.77），但实验 half-life ratio 极端分化（0.091 vs 1.212）— 静态指标可能不够敏感。</p>
           </div>
+          <div class="q-now"><h4>当前进展 · 2026-07-30(间接证据,支持"静态不够"的担忧)</h4>
+<p>并行工作里的同类教训:我们的占用率测量存在"响应比"系统不确定(真值可达观测值的 1/3.5),静态结构快照本质也是单时刻测量,同样可能系统性漏检。设计上的应对与我们"六分项互印证"一致:任何单一侧面必被拐骗(实测占用率-丰度混杂 ρ=−0.377)。建议静态指标至少与一个动力学代理(如无序度/RSA 变化、氢键网络差)并列报告,不把"静态无变化"当作否决票。</p></div>
           <div class="q-thread" data-discussion="Q3"></div>
         </div>
       </div>
@@ -164,7 +174,7 @@
         <div class="q-card critical" id="Q4" data-priority="critical">
           <div class="q-header">
             <span class="q-id">Q4</span>
-            <span class="q-priority critical">🔥 Critical</span>
+            <span class="q-priority critical">Critical</span>
             <h3 class="q-title">用什么指标来定量"两个结构有多不同"？</h3>
           </div>
           <div class="q-body">
@@ -193,13 +203,21 @@
             </div>
             <p class="q-side"><strong>决策依赖</strong>：这是所有后续 pipeline 的核心，必须先定。</p>
           </div>
+          <div class="q-now mainline"><h4>当前主线 · 正在攻关(2026-07-30)</h4>
+<p>指标本身待定(RMSD / TM-score / ΔPAE / Δcontact_probs 候选在评),但<strong>验收标准已从并行工作沉淀为四条,任何候选指标必须全过</strong>:</p>
+<ul>
+<li><strong>金标回收</strong>:已知功能位点在该指标下显著靠前(我们的及格线=内控 4/4 回收);</li>
+<li><strong>外部独立裁判</strong>:用与打分无关的数据源验证——我们的 Jiang 裁判实验曾把一版"改进"证伪退回(4/20 &lt; 基准 8/20),预注册阈值、先定后跑;</li>
+<li><strong>敏感性指纹</strong>:指标/超参微扰下名单稳定性随榜交付(教训:单超参改动曾致 Top20 整单换血,Jaccard=0.081);</li>
+<li><strong>双口径</strong>:至少两种合理参数化并列报告——"结论依赖权重选择"有实例(HIF1A 回收在两套权重下分别第 16 与第 656 名)。</li>
+</ul></div>
           <div class="q-thread" data-discussion="Q4"></div>
         </div>
 
         <div class="q-card" id="Q5" data-priority="high">
           <div class="q-header">
             <span class="q-id">Q5</span>
-            <span class="q-priority high">⚡ High</span>
+            <span class="q-priority high">High</span>
             <h3 class="q-title">AF3 自带的置信度指标能直接用作功能预测分数吗？</h3>
           </div>
           <div class="q-body">
@@ -212,13 +230,15 @@
             </ul>
             <p>单独用 PAE 差值是否已经够用？还是需要结合 TM-align 等外部工具做交叉验证？</p>
           </div>
+          <div class="q-now"><h4>当前进展 · 2026-07-30(部分答案,计算侧实测)</h4>
+<p>AF 系置信度指标(pLDDT/RSA 类)在我们的功能排序里有信息量但不是主力:结构项(S4)定权 0.160,且要粗化成三档才稳定;<strong>任何单一内置指标单独使用都不可靠</strong>(我们的 S1 单分项曾造成系统性偏差——15/44 证伪位点被它抬进前 5%)。建议:pLDDT/PAE 当特征可以,当"分数"必须先经金标位点校准。</p></div>
           <div class="q-thread" data-discussion="Q5"></div>
         </div>
 
         <div class="q-card" id="Q6" data-priority="high">
           <div class="q-header">
             <span class="q-id">Q6</span>
-            <span class="q-priority high">⚡ High</span>
+            <span class="q-priority high">High</span>
             <h3 class="q-title">在已预测的结构基础上再建模 PTM 是否可行？</h3>
           </div>
           <div class="q-body">
@@ -231,20 +251,22 @@
         <div class="q-card" id="Q7" data-priority="normal">
           <div class="q-header">
             <span class="q-id">Q7</span>
-            <span class="q-priority normal">📌 Normal</span>
+            <span class="q-priority normal">Normal</span>
             <h3 class="q-title">ESM-2 路线是否完全放弃？</h3>
           </div>
           <div class="q-body">
             <p>跨蛋白相关系数 r ≈ -0.07，基本失效。但蛋白内部 r = 0.95。</p>
             <p>是否有可能<strong>结合 AF3 结构信息</strong>来修正 ESM-2 的跨蛋白问题（例如用结构 embedding 做归一化），还是彻底切换到纯结构路线？</p>
           </div>
+          <div class="q-now"><h4>当前进展 · 2026-07-30(有直接答案,赛马实测)</h4>
+<p>没放弃,但要降低预期。我们用 ESM-C 600M embedding + LR/MLP 与手工公式正式赛马(同一批 9 个正样本,预注册四条验收):<strong>金标回收 公式 4/5 &gt; LR 3/5 &gt; MLP 2/5</strong>;MLP 仅在群体富集(p=3.6e-21)与黑名单防御(3 vs 5 越线)上反超。结论:<strong>小样本正例下,序列 embedding 赢不了知识驱动的启发式</strong>——embedding 含真实信号(富集显著),但头部排序不可靠。你们观察到的"跨蛋白失效(r≈−0.07)、蛋白内有效(r=0.95)"与我们"群体有效、头部失灵"同构。ESM 类输出建议降级为特征之一,不做主分数。</p></div>
           <div class="q-thread" data-discussion="Q7"></div>
         </div>
 
         <div class="q-card" id="Q8" data-priority="low">
           <div class="q-header">
             <span class="q-id">Q8</span>
-            <span class="q-priority low">💤 Low</span>
+            <span class="q-priority low">Low</span>
             <h3 class="q-title">PTM-Mamba 是否值得继续调研？</h3>
           </div>
           <div class="q-body">
@@ -269,7 +291,7 @@
         <div class="q-card" id="Q9" data-priority="high">
           <div class="q-header">
             <span class="q-id">Q9</span>
-            <span class="q-priority high">⚡ High</span>
+            <span class="q-priority high">High</span>
             <h3 class="q-title">如何批量处理成千上万个 Hyp 位点？</h3>
           </div>
           <div class="q-body">
@@ -292,13 +314,15 @@
               </div>
             </div>
           </div>
+          <div class="q-now"><h4>当前进展 · 2026-07-30(规模已被实践验证)</h4>
+<p>同一宇宙(14,413 位点)的全量批量计算已在 MSI 完成:全库 embedding(CPU 42 分钟)+ 全特征矩阵 + 全库打分排序,证明"分阶段 + 本地批量"路线可行。执行顺序与"分阶段策略"卡一致:<strong>先小范围验证打分器(我们先跑 8 个内控位点),通过后再放大全库</strong>。AF3 路线建议同样:先 33 个 golden sites 做 POC,过了再申请 MSI 本地部署跑全量;多账号轮转不建议(TOS 风险不值得)。</p></div>
           <div class="q-thread" data-discussion="Q9"></div>
         </div>
 
         <div class="q-card" id="Q10" data-priority="high">
           <div class="q-header">
             <span class="q-id">Q10</span>
-            <span class="q-priority high">⚡ High</span>
+            <span class="q-priority high">High</span>
             <h3 class="q-title">批量比较的 pipeline 怎么设计？</h3>
           </div>
           <div class="q-body">
@@ -317,13 +341,15 @@ AF3 批量提交（WT 版 + Hyp 版）
 输出：每位点的"结构变化分数"</pre>
             <p class="q-side">目前没有现成实现，需要从头搭建。是否参考已有的 AF3 高通量项目（如 AF Cluster, AFsample）？</p>
           </div>
+          <div class="q-now"><h4>当前进展 · 2026-07-30(有可复用骨架,已开源)</h4>
+<p>pipeline 骨架已存在并开源(评审包 github.com/huan2701-cmd/4-hyp,层1–层4 全链 9,200 行脚本,幂等 + 断言 + manifest):输入位点列表 → 批量特征 → 标准化打分 → 排序输出,全链在 14,413 位点上跑通。<strong>"AF3 结构差值"可以作为新一列特征直接插入该骨架</strong>,无需从头搭工程框架;需要新写的只有三段:AF3 批量提交、结果下载、PAE/CIF 解析。</p></div>
           <div class="q-thread" data-discussion="Q10"></div>
         </div>
 
         <div class="q-card" id="Q11" data-priority="normal">
           <div class="q-header">
             <span class="q-id">Q11</span>
-            <span class="q-priority normal">📌 Normal</span>
+            <span class="q-priority normal">Normal</span>
             <h3 class="q-title">同一蛋白上多个 Hyp 位点：全加还是逐一加？</h3>
           </div>
           <div class="q-body">
@@ -335,6 +361,8 @@ AF3 批量提交（WT 版 + Hyp 版）
             </ul>
             <p>哪种设计对功能预测更有意义？多 Hyp 肽段在数据中（n=61）热效应略强，提示协同效应真实存在。</p>
           </div>
+          <div class="q-now"><h4>当前进展 · 2026-07-30(来自数据的建议)</h4>
+<p>先逐一、后合并。我们观察到同蛋白多位点显著簇集(如 KIF5B 五个位点集中在 923–937 共 15 aa 内),簇内位点在实验上可被同一段肽覆盖。对应 AF3 设计:<strong>金标阶段逐一跑(分离单点贡献);规模化阶段簇内合并建模(一次 job 覆盖多位点,省 job 且保留协同信息)</strong>;孤立位点始终逐一。</p></div>
           <div class="q-thread" data-discussion="Q11"></div>
         </div>
       </div>
@@ -353,7 +381,7 @@ AF3 批量提交（WT 版 + Hyp 版）
         <div class="q-card critical" id="Q12" data-priority="critical">
           <div class="q-header">
             <span class="q-id">Q12</span>
-            <span class="q-priority critical">🔥 Critical</span>
+            <span class="q-priority critical">Critical</span>
             <h3 class="q-title">如何验证"结构变化分数"确实和功能相关？</h3>
           </div>
           <div class="q-body">
@@ -367,13 +395,21 @@ AF3 批量提交（WT 版 + Hyp 版）
             </ul>
             <p class="q-side"><strong>决策依赖</strong>：Q4 的指标选定后，Q12 是验证有效性的关键检验。</p>
           </div>
+          <div class="q-now mainline"><h4>当前主线 · 正在攻关(2026-07-30);方法学答案已较完整</h4>
+<p>并行工作沉淀的"三把尺子"可直接借用:</p>
+<ul>
+<li><strong>金标台账</strong>:把 23 个 golden sites 建成证据分级台账(我们建了 7 金/4 银/1 存疑,逐行 PMID+角色+权重;分级防止把方法学争议固化进评估);</li>
+<li><strong>外部独立裁判</strong>:用与指标无关的数据源做确认集,预注册及格线、先定后跑(我们的判据:v2.1 改进 &lt;8/20 即整体退回,事后不许找补);</li>
+<li><strong>负例防御</strong>:配一套"已知不相关/已证伪"位点,要求指标不把它们推上前排(我们用 Cockman 体外证伪集,验收线=无一进前 5%)。</li>
+</ul>
+<p>统计细节:n=23 小样本,<strong>Spearman 秩相关优于 Pearson</strong>(抗离群、对单调关系敏感);分组比较(高 vs 低变化组 Mann-Whitney)更稳,我们的验收线就是 MWW p&lt;0.05;n 不够就先报效应量+区间,别硬报 p。核心原则:<strong>判据预注册,FAIL 按"特征缺失 vs 指标定错"格式归因</strong>——完整流程已跑过一轮,见评审包主文档 Step 4。</p></div>
           <div class="q-thread" data-discussion="Q12"></div>
         </div>
 
         <div class="q-card" id="Q13" data-priority="high">
           <div class="q-header">
             <span class="q-id">Q13</span>
-            <span class="q-priority high">⚡ High</span>
+            <span class="q-priority high">High</span>
             <h3 class="q-title">已知功能位点的结构变化是否符合预期？</h3>
           </div>
           <div class="q-body">
@@ -381,6 +417,8 @@ AF3 批量提交（WT 版 + Hyp 版）
             <p>如果 ΔPAE 在这个位点接近零，是否会否定整个方法？还是说应该把这类"基序型 Hyp"作为方法的已知局限？</p>
             <p class="q-side"><strong>潜在结果</strong>：方法可能擅长捕捉"结构敏感型"功能 Hyp（如 PRDX3），不擅长"motif 创建型"（如 HIF-1α）。两类需要不同的预测策略。</p>
           </div>
+          <div class="q-now"><h4>当前进展 · 2026-07-30(有实测答案,金标回收)</h4>
+<p>我们系统做过对应检验,7 个金标位点在总分排序下:EPAS1 P531 第 6 席、EPAS1 P405 第 7 席、HIF1A P564 第 10 席(均进 Top20)、HIF1A P402 第 28 名(候补带)——预注册回收区间 4/4 通过。<strong>HIF1A P402(motif 创建型)没进 Top10 但仍在前列(#28),支持你们的猜测:motif 型位点在任何"变化幅度"类指标下都不显眼,应作为方法已知局限单列</strong>,而不是用它否定整个方法。另:HIF3A P492 字段稀疏、天花板天然更低,我们把它"预注册低天花板"单列,避免误读为打分器证伪。"预注册预期区间 + 单列归因"这套做法可直接搬到 ΔPAE 验证上。</p></div>
           <div class="q-thread" data-discussion="Q13"></div>
         </div>
       </div>
@@ -399,7 +437,7 @@ AF3 批量提交（WT 版 + Hyp 版）
         <div class="q-card" id="Q14" data-priority="normal">
           <div class="q-header">
             <span class="q-id">Q14</span>
-            <span class="q-priority normal">📌 Normal</span>
+            <span class="q-priority normal">Normal</span>
             <h3 class="q-title">是否邀请结构生物学方向的人评估方法？</h3>
           </div>
           <div class="q-body">
@@ -412,7 +450,7 @@ AF3 批量提交（WT 版 + Hyp 版）
         <div class="q-card" id="Q15" data-priority="normal">
           <div class="q-header">
             <span class="q-id">Q15</span>
-            <span class="q-priority normal">📌 Normal</span>
+            <span class="q-priority normal">Normal</span>
             <h3 class="q-title">现在的阶段定位是什么？</h3>
           </div>
           <div class="q-body">
@@ -425,6 +463,8 @@ AF3 批量提交（WT 版 + Hyp 版）
             </ul>
             <p>达到什么水平才算"值得继续推进到 full-scale"？</p>
           </div>
+          <div class="q-now"><h4>当前进展 · 2026-07-30(有可借用的"毕业标准")</h4>
+<p>我们的阶段判定用预注册三件套:<strong>金标回收(4/4)+ 外部裁判(≥8/20)+ 敏感性指纹(扰动下名单稳定)</strong>——全过才进入交付,任一过不了按格式归因。对应 AF3 pilot:建议同样先写死三条再跑(如 PRDX3 三位点方向正确、23 golden sites Spearman 显著、指标微扰下名单稳定),达到才进 full-scale;达不到按"特征缺失 vs 指标定错"归因迭代,不降级判据。</p></div>
           <div class="q-thread" data-discussion="Q15"></div>
         </div>
       </div>

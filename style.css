@@ -589,6 +589,72 @@ pre.pipeline {
   margin-top: 4px !important;
 }
 
+
+/* ---------- Current progress block (q-now) ---------- */
+.q-now {
+  margin: 16px 0 8px;
+  padding: 14px 16px;
+  background: var(--bg-2);
+  border-left: 3px solid #000000;
+  font-size: 14px;
+  color: var(--text-1);
+}
+
+.q-now h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-0);
+  margin-bottom: 8px;
+}
+
+.q-now p {
+  font-size: 14px !important;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.q-now ul {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.q-now li {
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 4px 0;
+}
+
+.q-now.mainline {
+  border-left: 3px solid #000000;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-left-width: 4px;
+}
+
+.q-now.mainline h4 {
+  font-size: 13px;
+}
+
+/* ---------- Hero mainline declaration ---------- */
+.hero-mainline {
+  margin: 0 0 32px;
+  padding: 16px 20px;
+  border: 1px solid #000000;
+  border-left: 4px solid #000000;
+  background: #ffffff;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-1);
+  max-width: 860px;
+}
+
+.hero-mainline a {
+  color: var(--text-0);
+  text-decoration: underline;
+}
+
 /* ---------- Bottom note ---------- */
 .bottom-note {
   margin-top: 48px;
