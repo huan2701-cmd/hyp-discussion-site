@@ -469,6 +469,27 @@ AF3 批量提交（WT 版 + Hyp 版）
         </div>
       </div>
 
+
+      <!-- 附:AF3 提交清单 -->
+      <div class="category" id="manifest">
+        <div class="cat-header">
+          <span class="cat-num">附</span>
+          <div>
+            <h2 class="cat-title">AF3 提交清单(Excel)</h2>
+            <p class="cat-desc">位点提交清单 · 三个 Sheet · 点击下载:
+              <a href="AF3_submission_manifest_2026-07-30.xlsx" target="_blank"><strong>AF3_submission_manifest_2026-07-30.xlsx</strong></a>(6.2 MB)</p>
+          </div>
+        </div>
+        <div class="q-card">
+          <div class="q-body">
+            <p><strong>Sheet 1 · 说明_README</strong> — 整个文件的说明书:每一列的含义(总分/候选池名次/占用率三元组/台账角色/WT 序列)、已知缺口(523 行序列核对失败、302 位点无 canonical 序列、TTN 蛋白超长)、使用纪律(占用率按三元组解读、黑名单标注的含义)。<strong>先读这页。</strong></p>
+            <p><strong>Sheet 2 · 第一批_优先候选(58 行)</strong> — 建议第一批做 AF3 验证的位点:终版 Top20 + 候补带 30(共 50 个独特位点)+ 金银标 5 + 池外内控 3。每行带总分、名次、占用率区间、WT 蛋白序列。POC 从此表起(WT+Hyp 共 116 个 job)。</p>
+            <p><strong>Sheet 3 · 全库_14416位点</strong> — 全部位点总账:分数、名次、占用率、家族、角色(金/银/黑名单标注)、WT 序列。<strong>af3_ready=TRUE 的 13,893 行可直接提交</strong>;FALSE 的已注明原因(序列核对失败/无序列),不得直接提交。</p>
+            <p class="q-side"><strong>口径</strong>:Top50 为 D-22 草案(主榜=B 版终版+候补带标注);占用率为敏感度区间(sec07),r=3.5 端点是敏感度界,不是置信区间;EPAS1 P531/P405 库内无占用率,NA 透传。数据源与版本见 Excel 内说明页。</p>
+          </div>
+        </div>
+      </div>
+
       <!-- Bottom note -->
       <div class="bottom-note">
         <h3>决策依赖关系</h3>
